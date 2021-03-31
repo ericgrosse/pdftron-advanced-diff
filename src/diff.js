@@ -742,7 +742,7 @@
 
     originalRightPanelCanvases = [];
     exports.NudgeTool.resetPageTransformationStates();
-    exports.DiffAlignmentTool.initializeDiffAlignmentToolHandlers(
+    /*exports.DiffAlignmentTool.initializeDiffAlignmentToolHandlers(
       instances[PANEL_IDS.LEFT_PANEL].instance,
       instances[PANEL_IDS.RIGHT_PANEL].instance,
       alignLineSegments,
@@ -762,15 +762,15 @@
         syncPageNumber(currPageIndex + 1);
         update(PANEL_IDS.MID_PANEL, currPageIndex);
       }
-    );
+    );*/
   };
 
   // Initialize WebViewer instances
   initializeViewers(VIEWER_IDS, () => {
     initialize(`${window.location.href}../common/files/test_doc_1.pdf`, `${window.location.href}../common/files/test_doc_2.pdf`);
     exports.NudgeTool.initNudgeTool(instances[PANEL_IDS.MID_PANEL].instance, TRANSFORMATION_DELTA, onNudgeToolStateChange);
-    document.getElementById('enable-snap-mode').disabled =
-      !instances[PANEL_IDS.LEFT_PANEL].instance.CoreControls.isFullPDFEnabled() && !instances[PANEL_IDS.RIGHT_PANEL].instance.CoreControls.isFullPDFEnabled();
+    /*document.getElementById('enable-snap-mode').disabled =
+      !instances[PANEL_IDS.LEFT_PANEL].instance.CoreControls.isFullPDFEnabled() && !instances[PANEL_IDS.RIGHT_PANEL].instance.CoreControls.isFullPDFEnabled();*/
   });
 
   document.getElementById('selectControl').onclick = e => {
@@ -782,27 +782,27 @@
     initialize(window.location.href + firstPdf, window.location.href + secondPdf);
   };
 
-  document.getElementById('url-form').onsubmit = e => {
+  /*document.getElementById('url-form').onsubmit = e => {
     e.preventDefault();
 
     const firstPdf = document.getElementById('url').value;
     const secondPdf = document.getElementById('url2').value;
     initialize(firstPdf, secondPdf);
-  };
+  };*/
 
-  document.getElementById('file-picker-form').onsubmit = e => {
+  /*document.getElementById('file-picker-form').onsubmit = e => {
     e.preventDefault();
     const firstPdf = document.forms['file-picker-form'][0].files[0];
     const secondPdf = document.forms['file-picker-form'][1].files[0];
     initialize(firstPdf, secondPdf);
-  };
+  };*/
 
-  document.getElementById('download-middle-panel-image').onclick = e => {
+  /*document.getElementById('download-middle-panel-image').onclick = e => {
     e.preventDefault();
     const documentContainer = instances[PANEL_IDS.MID_PANEL].documentContainer;
     const canvasElement = documentContainer.querySelector('.canvasOverlay');
     canvasElement.toBlob(blob => {
       saveAs(blob, 'diffed-image.png');
     });
-  };
+  };*/
 })(window);
