@@ -2,16 +2,16 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../common/style.css" />
     <link rel="stylesheet" href="./diff.css" />
 
-    <script src="../../../lib/webviewer.min.js"></script>
-    <script src="../../../lib/core/CoreControls.js"></script>
+    <script src="../lib/webviewer.min.js"></script>
+    <script src="../lib/core/CoreControls.js"></script>
     <!--Needed to allow for snapping-->
-    <script src="../../../lib/core/pdf/PDFNet.js"></script>
-    <script src="../../old-browser-checker.js"></script>
-    <script src="../../global.js"></script>
-    <script src="../../modernizr.custom.min.js"></script>
+    <script src="../lib/core/pdf/PDFNet.js"></script>
+    <script src="../common/old-browser-checker.js"></script>
+    <script src="../common/global.js"></script>
+    <script src="../common/modernizr.custom.min.js"></script>
   </head>
   <body>
     <header>
@@ -22,13 +22,13 @@
       <h2>Choose files to view</h2>
       First file:
       <select id="select1" style="width: 100%">
-        <option value="../../../samples/files/test_doc_1.pdf" selected>test_doc_1.pdf</option>
-        <option value="../../../samples/files/test_doc_2.pdf">test_doc_2.pdf</option>
+        <option value="../common/samples/files/test_doc_1.pdf" selected>test_doc_1.pdf</option>
+        <option value="../common/samples/files/test_doc_2.pdf">test_doc_2.pdf</option>
       </select>
       Second file:
       <select id="select2" style="width: 100%">
-        <option value="../../../samples/files/test_doc_1.pdf">test_doc_1.pdf</option>
-        <option value="../../../samples/files/test_doc_2.pdf" selected>test_doc_2.pdf</option>
+        <option value="../common/samples/files/test_doc_1.pdf">test_doc_1.pdf</option>
+        <option value="../common/samples/files/test_doc_2.pdf" selected>test_doc_2.pdf</option>
       </select>
       <input id="selectControl" type="submit" value="Process" />
 
@@ -65,10 +65,10 @@
       <div id="middlePanel" class="viewer"></div>
       <div id="rightPanel" class="viewer"></div>
     </div>
-    <script src="../../menu-button.js"></script>
+    <script src="../common/menu-button.js"></script>
     <!--Order of these files matter-->
 
-    <script src="../../FileSaver.min.js"></script>
+    <script src="../common/FileSaver.min.js"></script>
 
     <script>
       Modernizr.addTest('async', function() {

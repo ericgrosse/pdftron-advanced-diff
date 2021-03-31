@@ -8,6 +8,8 @@ const ip = require('ip');
 const app = express();
 
 const options = process.argv.reduce((acc, arg) => {
+  console.log('options');
+
   const pair = arg.split('=');
   if (pair.length === 2) {
     acc[pair[0]] = pair[1];
@@ -16,6 +18,8 @@ const options = process.argv.reduce((acc, arg) => {
 }, {});
 
 const handleAnnotation = (req, res, handler) => {
+  console.log('handleAnnotation');
+
   const dir = path.resolve(__dirname, 'annotations');
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
@@ -29,6 +33,8 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.get('/annotations', (req, res) => {
+  console.log('get /annotations');
+
   handleAnnotation(req, res, (dir) => {
     const xfdfFile = (req.query.did) ? path.resolve(dir, `${req.query.did}.xfdf`) : path.resolve(dir, 'default.xfdf');
     if (fs.existsSync(xfdfFile)) {
@@ -41,6 +47,8 @@ app.get('/annotations', (req, res) => {
 });
 
 app.post('/annotations', (req, res) => {
+  console.log('post /annotations');
+
   handleAnnotation(req, res, (dir) => {
     const xfdfFile = (req.body.did) ? path.resolve(dir, `${req.body.did}.xfdf`) : path.resolve(dir, 'default.xfdf');
     try {
@@ -53,14 +61,14 @@ app.post('/annotations', (req, res) => {
 });
 
 app.get('/ip', (req, res) => {
+  console.log('get /ip');
+
   res.send(ip.address());
 });
 
-app.get('/', (req, res) => {
-  res.redirect('/samples');
-});
-
 app.get(/\/samples(.*)(\/|\.html)$/, (req, res, next) => {
+  console.log('get /\/samples(.*)(\/|\.html)$/');
+
   if (req.query.key || !options.key) {
     next();
   } else if (req.originalUrl.slice(-10) === 'index.html') {
@@ -75,6 +83,8 @@ app.use(express.static(path.resolve(__dirname), {
     res.set('Service-Worker-Allowed', '/');
   },
 }));
+
+app.use(express.static(path.join(__dirname, 'src')));
 
 app.listen(3000, '0.0.0.0', (err) => {
   if (err) {

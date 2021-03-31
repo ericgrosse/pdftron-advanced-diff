@@ -13,7 +13,7 @@
 // @link Document.cancelLoadCanvas: https://www.pdftron.com/api/web/CoreControls.Document.html#cancelLoadCanvas__anchor
 /* global saveAs */
 (function(exports) {
-  CoreControls.setWorkerPath('../../../lib/core');
+  CoreControls.setWorkerPath('../lib/core');
 
   let originalScroller = null;
   let scrollTimeout;
@@ -461,7 +461,7 @@
 
       WebViewer(
         {
-          path: '../../../lib',
+          path: '../lib',
           css: './nudge-tool.css',
           // share a single instance of the worker transport
           workerTransportPromise: getWorkerTransportPromise(item.pdf),
@@ -767,7 +767,7 @@
 
   // Initialize WebViewer instances
   initializeViewers(VIEWER_IDS, () => {
-    initialize(`${window.location.href}../../../samples/files/test_doc_1.pdf`, `${window.location.href}../../../samples/files/test_doc_2.pdf`);
+    initialize(`${window.location.href}../common/files/test_doc_1.pdf`, `${window.location.href}../common/files/test_doc_2.pdf`);
     exports.NudgeTool.initNudgeTool(instances[PANEL_IDS.MID_PANEL].instance, TRANSFORMATION_DELTA, onNudgeToolStateChange);
     document.getElementById('enable-snap-mode').disabled =
       !instances[PANEL_IDS.LEFT_PANEL].instance.CoreControls.isFullPDFEnabled() && !instances[PANEL_IDS.RIGHT_PANEL].instance.CoreControls.isFullPDFEnabled();
