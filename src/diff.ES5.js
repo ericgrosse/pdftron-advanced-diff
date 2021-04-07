@@ -6131,7 +6131,6 @@
               },
               o
             ).then(function(i) {
-              samplesSetup(i);
               var u = i.docViewer;
               i.disableFeatures([i.Feature.Annotations]), i.setToolMode('AnnotationEdit');
               var c = o.querySelector('iframe').contentDocument.querySelector('.DocumentContainer');

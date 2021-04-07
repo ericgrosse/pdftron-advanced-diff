@@ -9,9 +9,6 @@
     <script src="../lib/core/CoreControls.js"></script>
     <!--Needed to allow for snapping-->
     <script src="../lib/core/pdf/PDFNet.js"></script>
-    <script src="../common/old-browser-checker.js"></script>
-    <script src="../common/global.js"></script>
-    <script src="../common/modernizr.custom.min.js"></script>
   </head>
   <body>
     <header>
@@ -62,25 +59,9 @@
       <div id="middlePanel" class="viewer"></div>
       <div id="rightPanel" class="viewer"></div>
     </div>
-    <script src="../common/menu-button.js"></script>
-    <!--Order of these files matter-->
-
-    <script src="../common/FileSaver.min.js"></script>
-
     <script>
-      Modernizr.addTest('async', function() {
-        try {
-          var result;
-          eval('let a = () => {result = "success"}; let b = async () => {await a()}; b()');
-          return result === 'success';
-        } catch (e) {
-          return false;
-        }
-      });
-
-      // test for async and fall back to code compiled to ES5 if they are not supported
       ['diff-overlay-slider.js', 'diff-util.js', 'diff-alignment.js', /*'diff-alignment-tool.js',*/ 'nudge-tool.js', 'diff.js'].forEach(function(js) {
-        var script = Modernizr.async ? js : js.replace('.js', '.ES5.js');
+        var script = js;
         var scriptTag = document.createElement('script');
         scriptTag.src = script;
         scriptTag.type = 'text/javascript';

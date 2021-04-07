@@ -472,7 +472,6 @@
         },
         viewerElement
       ).then(instance => {
-        samplesSetup(instance);
         const docViewer = instance.docViewer;
         instance.disableFeatures([instance.Feature.Annotations]);
         instance.setToolMode('AnnotationEdit');
