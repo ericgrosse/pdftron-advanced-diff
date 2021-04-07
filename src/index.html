@@ -7,8 +7,6 @@
 
     <script src="../lib/webviewer.min.js"></script>
     <script src="../lib/core/CoreControls.js"></script>
-    <!--Needed to allow for snapping-->
-    <script src="../lib/core/pdf/PDFNet.js"></script>
   </head>
   <body>
     <header>
@@ -18,13 +16,13 @@
       <h2>Choose files to view</h2>
       First file:
       <select id="select1" style="width: 100%">
-        <option value="../common/files/test_doc_1.pdf" selected>test_doc_1.pdf</option>
-        <option value="../common/files/test_doc_2.pdf">test_doc_2.pdf</option>
+        <option value="../common/files/text-compare_long_1.pdf" selected>text-compare_long_1.pdf</option>
+        <option value="../common/files/text-compare_long_2.pdf">text-compare_long_2.pdf</option>
       </select>
       Second file:
       <select id="select2" style="width: 100%">
-        <option value="../common/files/test_doc_1.pdf">test_doc_1.pdf</option>
-        <option value="../common/files/test_doc_2.pdf" selected>test_doc_2.pdf</option>
+        <option value="../common/files/text-compare_long_1.pdf">text-compare_long_1.pdf</option>
+        <option value="../common/files/text-compare_long_2.pdf" selected>text-compare_long_2.pdf</option>
       </select>
       <input id="selectControl" type="submit" value="Process" />
 
@@ -60,7 +58,7 @@
       <div id="rightPanel" class="viewer"></div>
     </div>
     <script>
-      ['diff-overlay-slider.js', 'diff-util.js', 'diff-alignment.js', /*'diff-alignment-tool.js',*/ 'nudge-tool.js', 'diff.js'].forEach(function(js) {
+      ['diff-overlay-slider.js', 'diff-util.js', 'diff-alignment.js', 'diff-alignment-tool.js', 'nudge-tool.js', 'diff.js'].forEach(function(js) {
         var script = js;
         var scriptTag = document.createElement('script');
         scriptTag.src = script;
