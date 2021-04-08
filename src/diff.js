@@ -766,7 +766,7 @@
 
   // Initialize WebViewer instances
   initializeViewers(VIEWER_IDS, () => {
-    initialize(`${window.location.href}../common/files/text-compare_long_1.pdf`, `${window.location.href}../common/files/text-compare_long_2.pdf`);
+    initialize(`${window.location.href}../files/text-compare_long_1.pdf`, `${window.location.href}../files/text-compare_long_2.pdf`);
     exports.NudgeTool.initNudgeTool(instances[PANEL_IDS.MID_PANEL].instance, TRANSFORMATION_DELTA, onNudgeToolStateChange);
     /*document.getElementById('enable-snap-mode').disabled =
       !instances[PANEL_IDS.LEFT_PANEL].instance.CoreControls.isFullPDFEnabled() && !instances[PANEL_IDS.RIGHT_PANEL].instance.CoreControls.isFullPDFEnabled();*/
